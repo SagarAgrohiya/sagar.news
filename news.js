@@ -8,7 +8,7 @@ window
     .json()
     .then(sportsnews=>{
         //console.log(sportsnews)
-        let sportsData=sportsnews.articles;
+        let sportsData=sportsnews?.articles;
         let output=[];
         for (let sports of sportsData) {
             output+=`
@@ -35,7 +35,8 @@ window
     .json()
     .then(entertainmentnews=>{
         //console.log(sportsnews)
-        let entertainmentData=entertainmentnews.articles;
+if(entertainmentnews){
+            let entertainmentData=entertainmentnews?.articles;
         let output=[];
         for (let entertainment of entertainmentData) {
             output+=`
@@ -47,6 +48,7 @@ window
            
          }
          document.getElementById("right").innerHTML=output;
+}
     })
     .catch(err=>console.log(err));
 })
